@@ -1,0 +1,2 @@
+ntp enable
+ntp-service unicast-server 61.1.1.1

@@ -1,0 +1,35 @@
+---
+S1:
+  hostname: "10.1.4.252"
+  groups:
+    - switch
+  data:
+    type: switch
+
+S2:
+  hostname: "192.168.56.254"
+  groups:
+    - switch
+  data:
+    type: switch
+
+SZ1:
+  hostname: "10.2.25.1"
+  groups:
+    - router
+  data:
+    type: router
+
+SZ2:
+  hostname: "10.2.12.2"
+  groups:
+    - router
+  data:
+    type: router
+
+S4:
+  hostname: "10.3.1.254"
+  groups:
+    - switch
+  data:
+    type: switch

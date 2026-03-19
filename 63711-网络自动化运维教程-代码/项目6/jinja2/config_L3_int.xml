@@ -1,0 +1,28 @@
+<config>
+      <ethernet xmlns="http://www.huawei.com/netconf/vrp" content-version="1.0" format-version="1.0">
+        <ethernetIfs>
+          <ethernetIf operation="merge">
+            <ifName>{{ interface_name }}</ifName>
+            <l2Enable>disable</l2Enable>
+          </ethernetIf>
+        </ethernetIfs>
+      </ethernet>
+      <ifm xmlns="http://www.huawei.com/netconf/vrp" content-version="1.0" format-version="1.0">
+        <interfaces>
+          <interface operation="merge">
+            <ifName>{{ interface_name }}</ifName>
+            <ifAdminStatus>{{ interface_status }}</ifAdminStatus>
+            <ifDescr>Config by NETCONF</ifDescr>
+            <ifmAm4>
+              <am4CfgAddrs>
+                <am4CfgAddr operation="create">
+                  <subnetMask>{{ interface_mask }}</subnetMask>
+                  <addrType>main</addrType>
+                  <ifIpAddr>{{ interface_ip }}</ifIpAddr>
+                </am4CfgAddr>
+              </am4CfgAddrs>
+            </ifmAm4>
+          </interface>
+        </interfaces>
+      </ifm>
+</config>

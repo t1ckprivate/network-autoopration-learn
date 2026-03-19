@@ -1,0 +1,30 @@
+<config>
+      <vlan xmlns="http://www.huawei.com/netconf/vrp" content-version="1.0" format-version="1.0">
+        <vlans>
+          <vlan>
+            <vlanId>{{ vlanif_num }}</vlanId>
+            <vlanif operation="merge">
+              <dampTime>0</dampTime>
+            </vlanif>
+          </vlan>
+        </vlans>
+      </vlan>
+      <ifm xmlns="http://www.huawei.com/netconf/vrp" content-version="1.0" format-version="1.0">
+        <interfaces>
+          <interface operation="merge">
+            <ifName>{{ vlanif_name }}</ifName>
+            <ifAdminStatus>up</ifAdminStatus>
+            <ifDescr>Config by NETCONF</ifDescr>
+            <ifmAm4>
+              <am4CfgAddrs>
+                <am4CfgAddr operation="create">
+                  <subnetMask>{{ vlanif_mask }}</subnetMask>
+                  <addrType>main</addrType>
+                  <ifIpAddr>{{ vlanif_ip }}</ifIpAddr>
+                </am4CfgAddr>
+              </am4CfgAddrs>
+            </ifmAm4>
+          </interface>
+        </interfaces>
+      </ifm>
+</config>

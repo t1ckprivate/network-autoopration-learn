@@ -1,0 +1,6 @@
+---
+huawei:
+  platform: huawei
+
+cisco:
+  platform: ios

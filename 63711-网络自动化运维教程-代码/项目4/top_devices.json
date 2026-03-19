@@ -1,0 +1,33 @@
+ {
+    "SZ1": {
+              "device_type":"huawei",
+              "ip":"10.2.12.1",
+              "username":"python",
+              "password":"Huawei12#$"
+    	},    
+    "SZ2": {
+              "device_type":"huawei",
+              "ip":"10.2.12.2",
+              "username":"python",
+              "password":"Huawei12#$"
+    	},    
+    "S1": {
+              "device_type":"huawei",
+              "ip":"10.1.4.252",
+              "username":"python",
+              "password":"Huawei12#$"
+    	},
+    "S2": {
+              "device_type":"huawei",
+              "ip":"10.1.4.253",
+              "username":"python",
+              "password":"Huawei12#$"
+    	},
+    "S4": {
+              "device_type":"huawei",
+              "ip":"10.3.1.254",
+              "username":"python",
+              "password":"Huawei12#$"
+    	}
+}
+

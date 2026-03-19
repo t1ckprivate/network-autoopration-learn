@@ -1,0 +1,50 @@
+---
+- name: Get Router and Switch Infomation
+  hosts: switches
+  connection: local
+  gather_facts: no
+  vars:
+    cli:
+      host: "{{ inventory_hostname }}"
+      port: "{{ ansible_ssh_port }}"
+      username: "{{ ansible_ssh_user }}"
+      password: "{{ ansible_ssh_pass }}"
+      transport: cli
+  
+  tasks:
+  - name: "add vlan"
+    ce_command:
+     commands: |
+          system-view
+          vlan 900
+          quit
+          interface GigabitEthernet 0/0/4
+          port link-type access
+          port default vlan 900
+
+  - name: "display vlan 900"
+    ce_command:
+     commands: display vlan 900
+    register: result
+    
+  - name: "display vlan 900"
+    debug: msg={{result.stdout_lines}}
+
+  - name: "allow vlan 900 pass eth-trunk12"
+    ce_command:
+     commands: |
+          system-view
+          interface eth-trunk12
+          port trunk allow-pass vlan 900
+          
+  - name: "display cu int eth-trunk12"
+    ce_command:
+     commands: display cu int eth-trunk12
+    register: result
+    
+  - name: "display cu int eth-trunk12"
+    debug: msg={{result.stdout_lines}}
+
+    
+
+

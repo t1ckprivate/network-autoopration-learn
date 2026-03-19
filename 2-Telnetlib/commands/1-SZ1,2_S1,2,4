@@ -1,0 +1,9 @@
+telnet server enable
+aaa
+local-user python password cipher Huawei12#$
+local-user python service-type telnet
+quit
+user-interface vty 0 4
+authentication-mode aaa
+user privilege level 3
+protocol inbound telnet

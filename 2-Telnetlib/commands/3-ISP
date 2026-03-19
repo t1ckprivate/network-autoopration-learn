@@ -1,0 +1,2 @@
+ntp enable
+ntp-service refclock-master

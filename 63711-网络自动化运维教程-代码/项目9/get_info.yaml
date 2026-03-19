@@ -1,0 +1,40 @@
+---
+- name: Get Router and Switch Infomation
+  hosts: devices
+  connection: local
+  gather_facts: no
+  vars:
+    cli:
+      host: "{{ inventory_hostname }}"
+      port: "{{ ansible_ssh_port }}"
+      username: "{{ ansible_ssh_user }}"
+      password: "{{ ansible_ssh_pass }}"
+      transport: cli
+  
+  tasks:
+  - name: "display version"
+    ce_command:
+     commands: display version
+    register: result
+
+  - name: "display version"
+    debug: msg={{result.stdout_lines}}
+
+  - name: "OSPF peer"
+    ce_command:
+     commands: display ospf peer brief
+    register: result
+    
+  - name: "display ospf peer"
+    debug: msg={{result.stdout_lines}}
+
+  - name: "Routing Table"
+    ce_command:
+     commands: display ip routing-table
+    register: result
+
+  - name: "display ip routing Table"
+    debug: msg={{result.stdout_lines}}
+    
+
+

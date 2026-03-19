@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UNICODE" ?>
+<topo version="1.2.00.380">
+    <devices>
+        <dev id="429AA110-833C-469f-8EE9-CBE2CF809F76" name="CLIENT3" model="Server" settings="-domain 0 -eth 54-89-98-0C-80-4A -ipaddr 172.16.100.101 -ipmask 255.255.255.0 -gateway 0.0.0.0 -ipv6addr 2000::2 -ipv6gateway 2000::1 -prefixlen 64 -ipv4dns 0.0.0.0 -ipv6dns 3000::1 -dnslist NULL" system_mac="54-89-98-46-16-5C" com_port="0" bootmode="0" cx="567.000000" cy="495.000000" edit_left="594" edit_top="549">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="Ethernet" count="1" />
+            </slot>
+        </dev>
+        <dev id="353B365F-18CA-45cd-B282-D6581F6F710E" name="CLIENT2" model="Server" settings="-domain 0 -eth 54-89-98-42-55-CF -ipaddr 172.16.100.100 -ipmask 255.255.255.0 -gateway 0.0.0.0 -ipv6addr 2000::2 -ipv6gateway 2000::1 -prefixlen 64 -ipv4dns 0.0.0.0 -ipv6dns 3000::1 -dnslist NULL" system_mac="54-89-98-0C-2D-8F" com_port="0" bootmode="0" cx="344.000000" cy="487.000000" edit_left="371" edit_top="541">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="Ethernet" count="1" />
+            </slot>
+        </dev>
+        <dev id="4B161BAE-7967-447e-99AF-02FF0A3395D0" name="CLIENT1" model="Server" settings="-domain 0 -eth 54-89-98-5E-50-03 -ipaddr 172.16.100.99 -ipmask 255.255.255.0 -gateway 0.0.0.0 -ipv6addr 2000::2 -ipv6gateway 2000::1 -prefixlen 64 -ipv4dns 0.0.0.0 -ipv6dns 3000::1 -dnslist NULL" system_mac="54-89-98-9A-44-FB" com_port="0" bootmode="0" cx="246.000000" cy="293.000000" edit_left="273" edit_top="347">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="Ethernet" count="1" />
+            </slot>
+        </dev>
+        <dev id="A271B37B-2302-4940-B7B2-3F2E34557757" name="CLIENT4" model="Server" settings="-domain 0 -eth 54-89-98-A3-56-C5 -ipaddr 172.16.100.102 -ipmask 255.255.255.0 -gateway 0.0.0.0 -ipv6addr 2000::2 -ipv6gateway 2000::1 -prefixlen 64 -ipv4dns 0.0.0.0 -ipv6dns 3000::1 -dnslist NULL" system_mac="54-89-98-D3-79-C5" com_port="0" bootmode="0" cx="656.000000" cy="290.000000" edit_left="683" edit_top="344">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="Ethernet" count="1" />
+            </slot>
+        </dev>
+        <dev id="359C4AEA-7028-45a0-859A-AB53A8448F6A" name="Cloud1" model="Cloud" settings="" system_mac="" com_port="0" bootmode="0" cx="460.500000" cy="85.500000" edit_left="503" edit_top="170">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="Ethernet" count="0" />
+                <interface sztype="Ethernet" interfacename="GE" count="2" />
+                <interface sztype="Serial" interfacename="Serial" count="0" />
+                <interfaceMap sztype="Ethernet" interfacename="GE" displayNo="1" remoteDisplayNo="2" adapterUid="" isOpen="0" udpPort="0" peerIPAdd="0.0.0.0" peerIP="0" peerPort="0" />
+                <interfaceMap sztype="Ethernet" interfacename="GE" displayNo="2" remoteDisplayNo="1" adapterUid="\Device\NPF_{D94CB37C-9603-4F30-B46E-356A42AB5916}" isOpen="1" udpPort="0" peerIPAdd="0.0.0.0" peerIP="0" peerPort="0" />
+            </slot>
+        </dev>
+        <dev id="238ED81B-F3F3-47a9-96AF-476C497AF2AC" name="LSW1" model="S5700" settings="" system_mac="4C-1F-CC-42-0D-0B" com_port="2000" bootmode="0" cx="477.000000" cy="292.000000" edit_left="504" edit_top="346">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="GE" count="24" />
+            </slot>
+        </dev>
+    </devices>
+    <lines>
+        <line srcDeviceID="4B161BAE-7967-447e-99AF-02FF0A3395D0" destDeviceID="238ED81B-F3F3-47a9-96AF-476C497AF2AC">
+            <interfacePair lineName="Copper" srcIndex="0" srcBoundRectIsMoved="0" srcBoundRect_X="316.183350" srcBoundRect_Y="319.813049" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="1" tarBoundRectIsMoved="0" tarBoundRect_X="460.816650" tarBoundRect_Y="319.186951" tarOffset_X="0.000000" tarOffset_Y="0.000000" />
+        </line>
+        <line srcDeviceID="353B365F-18CA-45cd-B282-D6581F6F710E" destDeviceID="238ED81B-F3F3-47a9-96AF-476C497AF2AC">
+            <interfacePair lineName="Copper" srcIndex="0" srcBoundRectIsMoved="0" srcBoundRect_X="395.332672" srcBoundRect_Y="478.324249" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="2" tarBoundRectIsMoved="0" tarBoundRect_X="479.667328" tarBoundRect_Y="354.675751" tarOffset_X="0.000000" tarOffset_Y="0.000000" />
+        </line>
+        <line srcDeviceID="429AA110-833C-469f-8EE9-CBE2CF809F76" destDeviceID="238ED81B-F3F3-47a9-96AF-476C497AF2AC">
+            <interfacePair lineName="Copper" srcIndex="0" srcBoundRectIsMoved="0" srcBoundRect_X="576.497498" srcBoundRect_Y="482.522156" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="3" tarBoundRectIsMoved="0" tarBoundRect_X="521.502502" tarBoundRect_Y="358.477844" tarOffset_X="0.000000" tarOffset_Y="0.000000" />
+        </line>
+        <line srcDeviceID="A271B37B-2302-4940-B7B2-3F2E34557757" destDeviceID="238ED81B-F3F3-47a9-96AF-476C497AF2AC">
+            <interfacePair lineName="Copper" srcIndex="0" srcBoundRectIsMoved="0" srcBoundRect_X="639.818909" srcBoundRect_Y="317.482483" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="4" tarBoundRectIsMoved="0" tarBoundRect_X="547.181091" tarBoundRect_Y="318.517517" tarOffset_X="0.000000" tarOffset_Y="0.000000" />
+        </line>
+        <line srcDeviceID="359C4AEA-7028-45a0-859A-AB53A8448F6A" destDeviceID="238ED81B-F3F3-47a9-96AF-476C497AF2AC">
+            <interfacePair lineName="Copper" srcIndex="0" srcBoundRectIsMoved="0" srcBoundRect_X="503.337158" srcBoundRect_Y="192.396088" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="0" tarBoundRectIsMoved="0" tarBoundRect_X="503.773895" tarBoundRect_Y="275.816833" tarOffset_X="0.000000" tarOffset_Y="0.000000" />
+        </line>
+    </lines>
+    <shapes />
+    <txttips />
+</topo>

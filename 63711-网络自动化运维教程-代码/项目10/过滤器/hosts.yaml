@@ -1,0 +1,27 @@
+---
+S2:
+  hostname: "192.168.56.254"
+  groups:
+    - huawei
+  data:
+    type: switch
+    city: shenzhen
+    core: True
+
+SZ1:
+  hostname: "10.2.25.1"
+  groups:
+    - huawei
+  data:
+    type: router
+    city: guangzhou
+    core: True
+
+S4:
+  hostname: "202.96.100.9"
+  groups:
+    - cisco
+  data:
+    type: switch
+    city: guangzhou
+    core: False

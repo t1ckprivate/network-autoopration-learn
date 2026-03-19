@@ -1,0 +1,27 @@
+<config>
+<ospfv2 xmlns="http://www.huawei.com/netconf/vrp" format-version="1.0" content-version="1.0">
+      <ospfv2comm>
+        <ospfSites>
+          <ospfSite>
+            <processId>{{ ospf_process_id }}</processId>
+            <vrfName>_public_</vrfName>
+            <areas>
+              <area>
+                <areaId>{{ ospf_area_num }}</areaId>
+                <areaType>Normal</areaType>
+                <descriptionArea/>
+                <interfaces>
+                  <interface>
+                    <ifName>{{ ospf_interface_1 }}</ifName>
+                  </interface>
+                  <interface>
+                    <ifName>{{ ospf_interface_2 }}</ifName>
+                  </interface>
+                </interfaces>
+              </area>
+            </areas>            
+          </ospfSite>
+        </ospfSites>
+      </ospfv2comm>
+    </ospfv2>
+</config>

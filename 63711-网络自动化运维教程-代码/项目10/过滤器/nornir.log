@@ -1,0 +1,112 @@
+2023-05-11 12:17:17,638 -  nornir.core -     INFO -        run() - Running task 'nornir_basic_filtering_using_filter_method_example' with args {} on 1 hosts
+2023-05-11 12:17:27,763 - nornir.core.task -    ERROR -      start() - Host 'SZ1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "D:\Program Files\Python39\lib\site-packages\netmiko\base_connection.py", line 1046, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "D:\Program Files\Python39\lib\site-packages\paramiko\client.py", line 365, in connect
+    sock.connect(addr)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Program Files\Python39\lib\site-packages\nornir\core\task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "D:\Program Files\Python39\lib\site-packages\nornir_netmiko\tasks\netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "D:\Program Files\Python39\lib\site-packages\nornir\core\inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "D:\Program Files\Python39\lib\site-packages\nornir\core\inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "D:\Program Files\Python39\lib\site-packages\nornir_netmiko\connections\netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "D:\Program Files\Python39\lib\site-packages\netmiko\ssh_dispatcher.py", line 365, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "D:\Program Files\Python39\lib\site-packages\netmiko\base_connection.py", line 439, in __init__
+    self._open()
+  File "D:\Program Files\Python39\lib\site-packages\netmiko\base_connection.py", line 444, in _open
+    self.establish_connection()
+  File "D:\Program Files\Python39\lib\site-packages\netmiko\base_connection.py", line 1068, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: huawei 10.2.25.1:22
+
+
+
+2023-05-11 12:17:27,764 - nornir.core.task -    ERROR -      start() - Host 'SZ1': task 'nornir_basic_filtering_using_filter_method_example' failed with traceback:
+Traceback (most recent call last):
+  File "D:\Program Files\Python39\lib\site-packages\nornir\core\task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "C:\Users\Administrator\AppData\Local\Temp\ipykernel_2464\3888616823.py", line 8, in nornir_basic_filtering_using_filter_method_example
+    task.run(task=netmiko_send_command, command_string="display ip int brief")
+  File "D:\Program Files\Python39\lib\site-packages\nornir\core\task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2023-05-11 12:23:49,171 -  nornir.core -     INFO -        run() - Running task 'nornir_basic_filtering_using_filter_method_example' with args {} on 2 hosts
+2023-05-11 12:23:59,173 - nornir.core.task -    ERROR -      start() - Host 'S4': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "D:\Program Files\Python39\lib\site-packages\netmiko\base_connection.py", line 1046, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "D:\Program Files\Python39\lib\site-packages\paramiko\client.py", line 365, in connect
+    sock.connect(addr)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Program Files\Python39\lib\site-packages\nornir\core\task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "D:\Program Files\Python39\lib\site-packages\nornir_netmiko\tasks\netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "D:\Program Files\Python39\lib\site-packages\nornir\core\inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "D:\Program Files\Python39\lib\site-packages\nornir\core\inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "D:\Program Files\Python39\lib\site-packages\nornir_netmiko\connections\netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "D:\Program Files\Python39\lib\site-packages\netmiko\ssh_dispatcher.py", line 365, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "D:\Program Files\Python39\lib\site-packages\netmiko\base_connection.py", line 439, in __init__
+    self._open()
+  File "D:\Program Files\Python39\lib\site-packages\netmiko\base_connection.py", line 444, in _open
+    self.establish_connection()
+  File "D:\Program Files\Python39\lib\site-packages\netmiko\base_connection.py", line 1068, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 202.96.100.9:22
+
+
+
+2023-05-11 12:23:59,173 - nornir.core.task -    ERROR -      start() - Host 'S4': task 'nornir_basic_filtering_using_filter_method_example' failed with traceback:
+Traceback (most recent call last):
+  File "D:\Program Files\Python39\lib\site-packages\nornir\core\task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "C:\Users\Administrator\AppData\Local\Temp\ipykernel_2464\458928016.py", line 8, in nornir_basic_filtering_using_filter_method_example
+    task.run(task=netmiko_send_command, command_string="display ip int brief")
+  File "D:\Program Files\Python39\lib\site-packages\nornir\core\task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2023-05-11 12:25:15,651 -  nornir.core -     INFO -        run() - Running task 'nornir_basic_filtering_using_filter_method_example' with args {} on 1 hosts
+2023-05-11 12:26:01,164 -  nornir.core -     INFO -        run() - Running task 'nornir_basic_filtering' with args {} on 1 hosts
+2023-05-11 13:30:43,335 -  nornir.core -  WARNING -        run() - Task 'nornir_advanced_filtering' has not been run 每 0 hosts selected
+2023-05-11 13:31:51,240 -  nornir.core -  WARNING -        run() - Task 'nornir_advanced_filtering' has not been run 每 0 hosts selected
+2023-05-11 13:33:07,059 -  nornir.core -  WARNING -        run() - Task 'nornir_advanced_filtering' has not been run 每 0 hosts selected
+2023-05-11 13:34:54,427 -  nornir.core -  WARNING -        run() - Task 'nornir_advanced_filtering' has not been run 每 0 hosts selected
+2023-05-11 13:36:32,812 -  nornir.core -     INFO -        run() - Running task 'nornir_basic_filtering' with args {} on 1 hosts
+2023-05-11 13:37:12,824 -  nornir.core -  WARNING -        run() - Task 'nornir_advanced_filtering' has not been run 每 0 hosts selected

@@ -1,0 +1,17 @@
+aaa
+local-user yunwei_001 password cipher Huawei@123
+local-user yunwei_001 service-type telnet
+quit
+user-interface vty 0 4
+authentication-mode aaa
+user privilege level 1
+protocol inbound telnet
+quit
+ntp-service unicast-server 61.1.1.2
+snmp-agent
+snmp-agent sys-info version v3
+snmp-agent group v3 group01 privacy read-view rd write-view wt notify-view nt
+snmp-agent mib-view include nt iso
+snmp-agent mib-view include rd iso
+snmp-agent mib-view include wt iso
+snmp-agent usm-user v3 user01 group01 authentication-mode sha Huawei@123 privacy-mode des56 Huawei123

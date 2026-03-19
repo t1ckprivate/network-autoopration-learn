@@ -1,0 +1,12 @@
+<config>
+      <vlan xmlns="http://www.huawei.com/netconf/vrp" content-version="1.0" format-version="1.0">
+        <vlans>
+          <vlan>
+            <vlanId>{{ vlan_id }}</vlanId>
+            <vlanif operation="merge">
+              <dampTime>0</dampTime>
+            </vlanif>
+          </vlan>
+        </vlans>
+      </vlan>
+</config>
