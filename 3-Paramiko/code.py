@@ -7,7 +7,8 @@ def send_dis_cmd(ip, username, password, commands):
         # 创建SSH对象.使用Paramiko SSHClient()实例化SSH对象
         ssh = paramiko.SSHClient()
 
-        # 允许连接未知主机.即新建立ssh连接时不需要再输入yes或no进行确认。# 自动添加主机名及主机密钥到本地HostKeys对象。
+        # 允许连接未知主机.即新建立ssh连接时不需要再输入yes或no进行确认。
+        # 自动添加主机名及主机密钥到本地HostKeys对象。
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         # 建立SSH会话连接
         ssh.connect(hostname=ip, username=username,
@@ -17,7 +18,8 @@ def send_dis_cmd(ip, username, password, commands):
         cli.send('screen-length 0 temporary\n')
         for cmd in commands_S:
             cli.send(cmd + "\n")
-            # Python默认无间隔按顺序执行所有代码，在使用paramiko向交换机发# 送配置命令时候可能会遇到SSH响应不及时或者设备回显信息显示不
+            # Python默认无间隔按顺序执行所有代码，在使用paramiko向交换机发
+            # 送配置命令时候可能会遇到SSH响应不及时或者设备回显信息显示不
             # 全。此时，可以使用time模块下的sleep方法来人为暂停程序。
             time.sleep(1)
         # 抓取channel回显信息。invoke_shell()已经创建了一个channel逻辑通

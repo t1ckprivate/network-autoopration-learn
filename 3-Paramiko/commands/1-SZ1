@@ -1,0 +1,10 @@
+aaa
+local-user python password cipher Huawei12#$
+local-user python service-type ssh
+quit
+stelnet server enable
+ssh user python authentication-type password
+user-interface vty 0 4
+authentication-mode aaa
+user privilege level 15
+protocol inbound ssh
