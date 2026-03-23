@@ -26,7 +26,8 @@ Set-ExecutionPolicy RemoteSigned
    
 > ⚠️ **注意 ！**  
 > 本操作可能在**重启系统**后**失效**  
-> 重复操作即可
+> 重复操作即可  
+> 更多信息，请参阅 [Microsoft | Device Guard and Credential Guard hardware readiness tool](https://www.microsoft.com/en-us/download/details.aspx?id=53337)
 ---
 ## 📝 更新日志
 #### 2026.3.23
