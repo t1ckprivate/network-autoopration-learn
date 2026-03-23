@@ -31,7 +31,7 @@ Set-ExecutionPolicy RemoteSigned
 ---
 ## 📝 更新日志
 #### 2026.3.23
-- 在README添加了关于**关闭基于虚拟化的安全性**
+- 在README添加了**关于关闭基于虚拟化的安全性**
 - 在README添加了**更新日志**
 - 更新了README
 - 添加了**项目4-netmiko**
