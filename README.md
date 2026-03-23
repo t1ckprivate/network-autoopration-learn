@@ -8,7 +8,7 @@
 
 --- 
 ## 🛠️ 关于关闭基于虚拟化的安全性
-- 找到本仓库中的[**scripts**](https://github.com/t1ckprivate/network-autoopration-learn/tree/main/1-PythonBasic)文件夹并下载**DG_Readiness_Tool_v3.6.ps1**
+- 找到本仓库中的[**scripts**](https://github.com/t1ckprivate/network-autoopration-learn/tree/main/scripts)文件夹并下载**DG_Readiness_Tool_v3.6.ps1**
 - 打开**管理员终端**，cd至脚本所在目录
 - 输入如下命令：
 ```powershell
