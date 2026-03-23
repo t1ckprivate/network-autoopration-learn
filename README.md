@@ -12,7 +12,7 @@
 - 打开**管理员终端**，cd至脚本所在目录
 - 输入如下命令：
 ```powershell
-# 设置执行策略（仅当前进程，避免污染系统）
+# 设置执行策略
 Set-ExecutionPolicy RemoteSigned
 
 # 执行脚本
