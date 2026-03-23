@@ -55,18 +55,6 @@
                 <interface sztype="Ethernet" interfacename="GE" count="24" />
             </slot>
         </dev>
-        <dev id="5FF6C344-C69D-4cc9-9B05-DF5DBC048D90" name="SZ1" poe="0" model="AR2220" settings="" system_mac="00-E0-FC-E0-51-AA" com_port="2001" bootmode="0" cx="384.000000" cy="328.000000" edit_left="411" edit_top="340">
-            <slot number="slot17" isMainBoard="1">
-                <interface sztype="Ethernet" interfacename="GE" count="1" />
-                <interface sztype="Ethernet" interfacename="GE" count="2" />
-                <interface sztype="Ethernet" interfacename="GE" count="1" />
-                <interface sztype="Ethernet" interfacename="GE" count="1" />
-                <interface sztype="Ethernet" interfacename="GE" count="1" />
-            </slot>
-            <slot isMainBoard="0" id="0" type="6" />
-            <slot isMainBoard="0" id="1" type="6" />
-            <slot isMainBoard="0" id="2" type="6" />
-        </dev>
         <dev id="87E2455F-C740-4d12-B3F1-66819F77E2DC" name="GZ" poe="0" model="AR2220" settings="" system_mac="00-E0-FC-77-25-C6" com_port="2002" bootmode="0" cx="627.000000" cy="324.000000" edit_left="655" edit_top="330">
             <slot number="slot17" isMainBoard="1">
                 <interface sztype="Ethernet" interfacename="GE" count="1" />
@@ -74,11 +62,6 @@
             </slot>
         </dev>
         <dev id="9FB2BF70-6E0F-4920-9377-9A97E409E02D" name="S2" poe="0" model="S5700" settings="" system_mac="4C-1F-CC-C4-1C-DD" com_port="2005" bootmode="0" cx="460.000000" cy="487.000000" edit_left="487" edit_top="541">
-            <slot number="slot17" isMainBoard="1">
-                <interface sztype="Ethernet" interfacename="GE" count="24" />
-            </slot>
-        </dev>
-        <dev id="8C8E6CC2-B370-494d-A24D-A70073707133" name="S1" poe="0" model="S5700" settings="" system_mac="4C-1F-CC-32-65-69" com_port="2004" bootmode="0" cx="288.000000" cy="484.000000" edit_left="315" edit_top="538">
             <slot number="slot17" isMainBoard="1">
                 <interface sztype="Ethernet" interfacename="GE" count="24" />
             </slot>
@@ -106,6 +89,23 @@
             <slot number="slot17" isMainBoard="1">
                 <interface sztype="Ethernet" interfacename="GE" count="24" />
             </slot>
+        </dev>
+        <dev id="8C8E6CC2-B370-494d-A24D-A70073707133" name="S1" poe="0" model="S5700" settings="" system_mac="4C-1F-CC-32-65-69" com_port="2004" bootmode="0" cx="288.000000" cy="484.000000" edit_left="315" edit_top="538">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="GE" count="24" />
+            </slot>
+        </dev>
+        <dev id="5FF6C344-C69D-4cc9-9B05-DF5DBC048D90" name="SZ1" poe="0" model="AR2220" settings="" system_mac="00-E0-FC-E0-51-AA" com_port="2001" bootmode="0" cx="384.000000" cy="328.000000" edit_left="411" edit_top="340">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="GE" count="1" />
+                <interface sztype="Ethernet" interfacename="GE" count="2" />
+                <interface sztype="Ethernet" interfacename="GE" count="1" />
+                <interface sztype="Ethernet" interfacename="GE" count="1" />
+                <interface sztype="Ethernet" interfacename="GE" count="1" />
+            </slot>
+            <slot isMainBoard="0" id="0" type="6" />
+            <slot isMainBoard="0" id="1" type="6" />
+            <slot isMainBoard="0" id="2" type="6" />
         </dev>
     </devices>
     <lines>
