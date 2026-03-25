@@ -1,0 +1,7 @@
+1.3.6.1.2.1.1.5.0,get sysName:,S
+1.3.6.1.2.1.2.1.0,get ifNumber:,S
+1.3.6.1.2.1.2.2.1.2,get all ifDescr:,M
+1.3.6.1.2.1.4.20.1.1,get all ip address:,M
+1.3.6.1.2.1.4.20.1.3,get all mask:,M
+1.3.6.1.2.1.4.21.1.1,get all route Destination:,M
+1.3.6.1.2.1.4.21.1.7,get all next-hop:,M
