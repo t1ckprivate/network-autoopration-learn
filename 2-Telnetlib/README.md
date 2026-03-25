@@ -1,7 +1,7 @@
 ## 如何使用？
-- 下载本仓库，并使用IDE打开./2-Telnetlib文件夹
-- 打开topo中的pro3.topo，**无需做任何设置，本仓库下的所有拓扑均已配置完成**
-- 在IDE中使得终端位于./2-Telnetlib中，运行code.py
+1. 下载本仓库，并使用IDE打开./2-Telnetlib文件夹
+2. 打开topo中的pro3.topo，**无需做任何设置，本仓库下的所有拓扑均已配置完成**
+3. 在IDE中使得终端位于./2-Telnetlib中，运行code.py
 
 ## ⚠️ 注意 ！
 - 不建议抓包，否则vmnet会炸，需恢复vmnet设置+重启
