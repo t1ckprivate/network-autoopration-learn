@@ -209,4 +209,15 @@
 
 ---
 ### ⑥ 运行代码！
-#### 管理设备IP地址即为
+> ❕ 注意  
+> 管理设备IP地址即为[③ 查看路由器IP](https://github.com/t1ckprivate/network-autoopration-learn/tree/main/5-PySNMP#-%E6%9F%A5%E7%9C%8B%E8%B7%AF%E7%94%B1%E5%99%A8ip)中得到的两个IP
+
+<p align="center">
+  <img src="/images/5-PySNMP/code.png" width="70%">
+</p>
+<p align="center"><em>VS code</em></p>
+
+---
+
+## 恭喜！
+- 你完成了这章的内容！
