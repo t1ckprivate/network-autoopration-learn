@@ -4,6 +4,9 @@
 > 但原有指导内容过于简要，对关键原理与实际操作的说明不够完整  
 > 因此本节在实践过程中对相关步骤与原理进行了补充、整理与扩展，以便更系统地理解相关技术  
 > **具体如本README中的操作步骤所示**
+>
+> 若你的设备依旧有连接不到eNSP的问题  
+> 请参阅：[GITHUB | t1ckprivate/network-autoopration-learn/tree/main/2-Telnetlib](https://github.com/t1ckprivate/network-autoopration-learn/tree/main/2-Telnetlib)
 
 > ❗警告
 > ---  
@@ -33,3 +36,44 @@
 </p>
 <p align="center"><em>SZ2</em></p>
 
+### ② 下载并安装 **MIB Browser**
+- 此处我使用的版本为官网下载的Version 2025a (published 23-Apr-2025)，并使用evaluation license激活
+> 详情请参阅：  
+> [MG-SOFT | Download MG-SOFT's Software Products](https://www.mg-soft.si/download.html?product=mibbrowser)  
+> [MG-SOFT | Request a 30-day evaluation license key](https://www.mg-soft.com/evalKeyReq.html)
+
+- 也可自行搜索 **绿色版**
+> 详情请参阅：  
+> [GITCODE | MG-SOFTMIBBrowserv10KEY资源介绍](https://gitcode.com/Premium-Resources/a9e1c)
+
+> ⚠️ **注意 ！**
+> ---
+> 非官方来源，其安全性与完整性无法得到保证，请自行甄别并谨慎使用。
+
+### ③ 查看路由器IP
+- 打开拓扑
+- 进入SZ1及SZ2
+- 输入如下指令：
+```
+sys
+int g1/0/0
+dis this
+```
+注意到IP分别为 **SZ1：10.2.26.1 | SZ2：10.2.16.2**  
+<p align="center">
+  <img src="/images/5-PySNMP/dis_SZ1.png" width="50%">
+</p>
+<p align="center"><em>dis_SZ2</em></p>
+<p align="center">
+  <img src="/images/5-PySNMP/dis_SZ2.png" width="50%">
+</p>
+<p align="center"><em>dis_SZ2</em></p>
+这两个IP即为MIB Bowser中需填写的IP  
+
+### ④ 启动MIB Bowser并配置用户
+启动后注意到如下界面：
+<p align="center">
+  <img src="/images\5-PySNMP\MIB_BROWSER_1.png" width="70%">
+</p>
+<p align="center"><em>dis_SZ2</em></p>
+①为
