@@ -71,9 +71,54 @@ dis this
 这两个IP即为MIB Bowser中需填写的IP  
 
 ### ④ 启动MIB Bowser并配置用户
-启动后注意到如下界面：
+#### 初步了解 | 启动后注意到如下界面：
 <p align="center">
-  <img src="/images\5-PySNMP\MIB_BROWSER_1.png" width="70%">
+  <img src="/images/5-PySNMP/MIB_BROWSER_1.png" width="70%">
 </p>
-<p align="center"><em>dis_SZ2</em></p>
-①为
+<p align="center"><em>MIB_BROWSER主界面</em></p>
+
+- ①为**填写IP**的地方  
+- ②为**SNMP偏好设置**  
+- ③为**输出框**  
+
+#### 配置用户 | 打开SNMP偏好设置
+- 注意到红框内的按钮，单击：  
+<p align="center">
+  <img src="/images/5-PySNMP/SNMP_1.png" width="70%">
+</p>
+<p align="center"><em>SNMP偏好设置_1</em></p>
+
+- 随后注意到如下界面，单击红框内的按钮：  
+<p align="center">
+  <img src="/images/5-PySNMP/USM_user_1.png" width="70%">
+</p>
+<p align="center"><em>用户设置_1</em></p>
+
+- 按照图示内填写：
+<p align="center">
+  <img src="/images/5-PySNMP/USM_user_2.png" width="70%">
+</p>
+<p align="center"><em>用户设置_2</em></p>
+
+- 填写完毕后分别单击箭头指向的按钮，填写密码：
+<p align="center">
+  <img src="/images/5-PySNMP/USM_user_3.png" width="70%">
+</p>
+<p align="center"><em>用户设置_3</em></p>
+
+> ⚠️ **注意 ！**  
+> 上下两个按钮各会弹出一个窗口，都需填写  
+> 密码为：Huawei@123
+
+- 填写完毕后按如图填写与勾选：
+<p align="center">
+  <img src="/images/5-PySNMP/SNMP_2.png" width="70%">
+</p>
+<p align="center"><em>SNMP偏好设置_2</em></p>
+
+- 随后点击OK：
+<p align="center">
+  <img src="/images/5-PySNMP/SNMP_3.png" width="70%">
+</p>
+<p align="center"><em>SNMP偏好设置_3</em></p>
+
