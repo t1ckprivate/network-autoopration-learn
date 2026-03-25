@@ -22,4 +22,16 @@
 - 打开topo中的pro3.topo，**无需做任何设置，本仓库下的所有拓扑均已配置完成**
 #### 若自行配置拓扑：
 - 复制 ./5-PySNMP/commands/1-SZ1,SZ2 中的内容，粘贴至SZ1、SZ2窗口中  
-![SZ1](/images/5-PySNMP/SZ1.png)
+  
+<figure style="text-align:center; margin:2rem auto;">
+  <img src="/images/5-PySNMP/SZ1.png" style="max-width:70%; height:auto;">
+  <figcaption style="font-size:0.85em; color:#666; margin-top:0.5rem;">
+    SZ1
+  </figcaption>
+</figure>
+<figure style="text-align:center; margin:2rem auto;">
+  <img src="/images/5-PySNMP/SZ2.png" style="max-width:70%; height:auto;">
+  <figcaption style="font-size:0.85em; color:#666; margin-top:0.5rem;">
+    SZ2
+  </figcaption>
+</figure>
