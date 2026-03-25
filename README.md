@@ -25,6 +25,7 @@ Set-ExecutionPolicy RemoteSigned
 - 重启后按**Windows徽标键**，输入**msinfo**打开系统信息，注意到**基于虚拟化的安全性**为**未启用**即成功
    
 > ⚠️ **注意 ！**  
+> ---
 > 本操作可能在**重启系统**后**失效**  
 > 重复操作即可  
 > 更多信息，请参阅 [Microsoft | Device Guard and Credential Guard hardware readiness tool](https://www.microsoft.com/en-us/download/details.aspx?id=53337)

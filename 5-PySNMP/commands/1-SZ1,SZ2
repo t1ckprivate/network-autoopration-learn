@@ -1,0 +1,8 @@
+snmp-agent
+snmp-agent sys-info version v3
+snmp-agent mib-view nt include iso
+snmp-agent mib-view rd include iso
+snmp-agent mib-view wt include iso
+snmp-agent group v3 group01 priv read-view rd write-view wt notify-view nt
+snmp-agent usm-user v3 user01 group01 authentication-mode sha Huawei@123 privacy-mode aes128 Huawei@123
+snmp-agent trap source GigabitEthernet 0/0/1
