@@ -29,12 +29,12 @@
 > pyans1（0.6）过新，不支持pysnmp（4.4）
 > python3.12不支持pysnmp（4.4），建议使用python3.11  
 #### 使用python3.11并输入如下命令：
-```
-pip install pysnmp==4.4.12
-pip install pyasn1==0.4.8
-pip install pysnmp-mibs
-```
-
+    ```
+    pip install pysnmp==4.4.12
+    pip install pyasn1==0.4.8
+    pip install pysnmp-mibs
+    ```
+---
 ### ① 下载 / 配置拓扑
 #### 若使用本仓库提供的拓扑：
 1. 下载本仓库，并使用IDE打开./5-PySNMP文件夹
@@ -52,29 +52,31 @@ pip install pysnmp-mibs
 </p>
 <p align="center"><em>SZ2</em></p>
 
+---
 ### ② 下载并安装 **MIB Browser**
 - 此处我使用的版本为官网下载的Version 2025a (published 23-Apr-2025)，并使用evaluation license激活
-> 详情请参阅：  
-> [MG-SOFT | Download MG-SOFT's Software Products](https://www.mg-soft.si/download.html?product=mibbrowser)  
-> [MG-SOFT | Request a 30-day evaluation license key](https://www.mg-soft.com/evalKeyReq.html)
+    > 详情请参阅：  
+    > [MG-SOFT | Download MG-SOFT's Software Products](https://www.mg-soft.si/download.html?product=mibbrowser)  
+    > [MG-SOFT | Request a 30-day evaluation license key](https://www.mg-soft.com/evalKeyReq.html)
 
 - 也可自行搜索 **绿色版**
-> 详情请参阅：  
-> [GITCODE | MG-SOFTMIBBrowserv10KEY资源介绍](https://gitcode.com/Premium-Resources/a9e1c)
+    > 详情请参阅：  
+    > [GITCODE | MG-SOFTMIBBrowserv10KEY资源介绍](https://gitcode.com/Premium-Resources/a9e1c)
 
 > ⚠️ **注意 ！**
 > ---
 > 非官方来源，其安全性与完整性无法得到保证，请自行甄别并谨慎使用。
 
+---
 ### ③ 查看路由器IP
 1. 打开拓扑
 2. 进入SZ1及SZ2
 3. 输入如下指令：
-```
-sys
-int g1/0/0
-dis this
-```
+    ```
+    sys
+    int g1/0/0
+    dis this
+    ```
 注意到IP分别为 **SZ1：10.2.26.1 | SZ2：10.2.16.2**  
 <p align="center">
   <img src="/images/5-PySNMP/dis_SZ1.png" width="50%">
@@ -86,12 +88,13 @@ dis this
 <p align="center"><em>dis_SZ2</em></p>
 这两个IP即为MIB Bowser中需填写的IP  
 
+---
 ### ④ 启动MIB Bowser并配置用户
 #### 初步了解 | 启动后注意到如下界面：
 <p align="center">
   <img src="/images/5-PySNMP/MIB_BROWSER_1.png" width="70%">
 </p>
-<p align="center"><em>MIB_BROWSER主界面</em></p>
+<p align="center"><em>MIB_BROWSER主界面_1</em></p>
 
 - ①为**填写IP**的地方  
 - ②为**SNMP偏好设置**  
@@ -122,9 +125,9 @@ dis this
 </p>
 <p align="center"><em>用户设置_3</em></p>
 
-> ⚠️ **注意 ！**  
-> 上下两个按钮各会弹出一个窗口，都需填写  
-> 密码为：Huawei@123
+    > ⚠️ **注意 ！**  
+    > 上下两个按钮各会弹出一个窗口，都需填写  
+    > 密码为：Huawei@123
 
 5. 填写完毕后按如图填写与勾选：
 <p align="center">
@@ -157,17 +160,53 @@ dis this
 > 
 > 每台网络设备或系统的 OID 可能不同，OID 本身只是标识信息的索引，要获取某台设备的具体数据，就必须先知道它的 IP，通过 IP 定位设备，再用对应的 OID 查询。  
 
+---
 ### ⑤ 编写oid_string.csv
 #### 具体步骤如下：
-1. 
+1. 创建*oid_string.csv*到与本项目源代码相同的目录
+2. 使用文本编辑器打开，格式如下所示：
 
-#### 课本P60页的图5-6按照下表的Name查询：
-| 描述                        | Name           | 说明          |
-| ------------------------- | -------------- | ----------- |
-| get sysName               | sysName        | 设备系统名称      |
-| get ifNumber              | ifNumber       | 设备接口数量      |
-| get all ifDescr           | ifDescr        | 所有接口描述      |
-| get all ip address        | ipAdEntAddr    | 所有接口的 IP 地址 |
-| get all mask              | ipAdEntNetMask | 对应 IP 的子网掩码 |
-| get all route Destination | ipRouteDest    | 路由表目的地址     |
-| get all next-hop          | ipRouteNextHop | 路由表下一跳地址    |
+    ```
+    [OID], [描述], [S/M]
+    [OID], [描述], [S/M]
+    [OID], [描述], [S/M]
+    ```
+
+    > OID查询**在后面讲**  
+    > 描述随便写  
+    > OID最后若一位为0，最后就是S，否则为M
+
+#### 查询OID
+1. 打开MIB Browser
+2. 查询下表，在MIB Tree中的查询框输入
+
+    | 描述                        | Name           | 说明          |
+    | ------------------------- | -------------- | ----------- |
+    | get sysName               | sysName        | 设备系统名称      |
+    | get ifNumber              | ifNumber       | 设备接口数量      |
+    | get all ifDescr           | ifDescr        | 所有接口描述      |
+    | get all ip address        | ipAdEntAddr    | 所有接口的 IP 地址 |
+    | get all mask              | ipAdEntNetMask | 对应 IP 的子网掩码 |
+    | get all route Destination | ipRouteDest    | 路由表目的地址     |
+    | get all next-hop          | ipRouteNextHop | 路由表下一跳地址    |
+
+<p align="center">
+  <img src="/images/5-PySNMP/MIB_BROWSER_2.png" width="70%">
+</p>
+<p align="center"><em>MIB_BROWSER主界面_2</em></p>
+
+3. 右键目标的对象名，点击Properties
+<p align="center">
+  <img src="/images/5-PySNMP/MIB_BROWSER_3.png" width="70%">
+</p>
+<p align="center"><em>MIB_BROWSER主界面_3</em></p>
+
+4. 复制OID并回填到*oid_string.csv*中
+<p align="center">
+  <img src="/images/5-PySNMP/MIB_Node_Properties.png" width="70%">
+</p>
+<p align="center"><em>MIB_Node_Properties</em></p>
+
+---
+### ⑥ 运行代码！
+#### 管理设备IP地址即为
