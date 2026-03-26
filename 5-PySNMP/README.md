@@ -72,11 +72,11 @@
 1. 打开拓扑
 2. 进入SZ1及SZ2
 3. 输入如下指令：
-    ```
-    sys
-    int g1/0/0
-    dis this
-    ```
+  ```
+  sys
+  int g1/0/0
+  dis this
+  ```
 注意到IP分别为 **SZ1：10.2.26.1 | SZ2：10.2.16.2**  
 <p align="center">
   <img src="/images/5-PySNMP/dis_SZ1.png" width="50%">
