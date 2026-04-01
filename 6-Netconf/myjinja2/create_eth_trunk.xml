@@ -1,0 +1,67 @@
+<config>
+      <ifmtrunk xmlns="http://www.huawei.com/netconf/vrp" content-version="1.0" format-version="1.0">
+        <TrunkIfs>
+          <TrunkIf operation="create">
+            <ifName>{{ Eth_Trunk_num }}</ifName>
+          </TrunkIf>
+        </TrunkIfs>
+      </ifmtrunk>
+
+<ifmtrunk xmlns="http://www.huawei.com/netconf/vrp" content-version="1.0" format-version="1.0">
+        <TrunkIfs>
+          <TrunkIf>
+            <ifName>{{ Eth_Trunk_num }}</ifName>
+            <TrunkMemberIfs>
+              <TrunkMemberIf operation="create">
+                <memberIfName>{{ interface_name_1 }}</memberIfName>
+                <weight>1</weight>
+              </TrunkMemberIf>
+            </TrunkMemberIfs>
+          </TrunkIf>
+        </TrunkIfs>
+        <TrunkIfs>
+          <TrunkIf>
+            <ifName>Eth-Trunk1</ifName>
+            <TrunkMemberIfs>
+              <TrunkMemberIf operation="create">
+                <memberIfName>{{ interface_name_2 }}</memberIfName>
+                <weight>1</weight>
+              </TrunkMemberIf>
+            </TrunkMemberIfs>
+          </TrunkIf>
+        </TrunkIfs>
+      </ifmtrunk>
+<ifm xmlns="http://www.huawei.com/netconf/vrp" content-version="1.0" format-version="1.0">
+        <interfaces>
+          <interface operation="merge">
+            <ifName>{{ interface_name_1 }}</ifName>
+            <ifAdminStatus>up</ifAdminStatus>
+            <ifDescr>Config by NETCONF</ifDescr>
+          </interface>
+        </interfaces>
+         <interfaces>
+          <interface operation="merge">
+            <ifName>{{ interface_name_2 }}</ifName>
+            <ifAdminStatus>up</ifAdminStatus>
+            <ifDescr>Config by NETCONF</ifDescr>
+          </interface>
+        </interfaces>
+      </ifm>
+
+       <ethernet xmlns="http://www.huawei.com/netconf/vrp" content-version="1.0" format-version="1.0">
+         <ethernetIfs>
+           <ethernetIf>
+             <ifName>{{ Eth_Trunk_num }}</ifName>
+             <l2Attribute operation="merge">
+               <linkType>{{ link_type }}</linkType>
+               <pvid>1</pvid>
+               <trunkVlans></trunkVlans>
+             </l2Attribute>
+           </ethernetIf>
+         </ethernetIfs>
+       </ethernet>
+</config>
+
+
+
+

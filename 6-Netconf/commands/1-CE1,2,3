@@ -1,0 +1,29 @@
+sys immediately
+int g1/0/9
+undo portswitch
+ip add ___.___.___.___  # 自己填ip
+q
+commit
+
+aaa
+local-user netconf password irreversible-cipher Huawei12#$
+local-user netconf service-type ssh
+local-user netconf level 3
+q
+commit
+
+stelnet server enable
+ssh user netconf authentication-type password
+ssh user netconf service-type snetconf
+user-interface vty 0 4
+authentication-mode aaa
+user privilege level 3
+q
+commit
+
+snetconf server enable
+netconf
+protocol inbound ssh port 830
+work-mode yang schema
+q
+commit

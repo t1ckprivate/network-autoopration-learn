@@ -8,8 +8,8 @@
 > 若你的设备依旧有连接不到eNSP的问题  
 > 请参阅：[GITHUB | t1ckprivate/network-autoopration-learn/tree/main/2-Telnetlib](https://github.com/t1ckprivate/network-autoopration-learn/tree/main/2-Telnetlib)
 >
-> 若需要更多教程 或发现本仓库有错误  
-> 请在本仓库[提交issue](https://github.com/t1ckprivate/network-autoopration-learn/issues) 或 私聊我 或电邮联系[i@t1ck.me](mailto:i@t1ck.me)  
+> 若**需要更多教程** 或 **发现本仓库有错误** 或 **需要帮助**  
+> 请在本仓库[提交issue](https://github.com/t1ckprivate/network-autoopration-learn/issues) 或 私聊我 或 电邮联系[i@t1ck.me](mailto:i@t1ck.me)  
 
 > ❗警告
 > ---  
@@ -29,16 +29,18 @@
 > pyans1（0.6）过新，不支持pysnmp（4.4）
 > python3.12不支持pysnmp（4.4），建议使用python3.11  
 #### 使用python3.11并输入如下命令：
-    ```
+
     pip install pysnmp==4.4.12
     pip install pyasn1==0.4.8
     pip install pysnmp-mibs
-    ```
+> 若你的虚拟机存在Python版本不兼容这些第三方库，请参阅：  
+> [GITHUB | TICKUNLOCK - CentOS_network-autooperathon
+](https://github.com/t1ckunlock/CentOS_network-autooperathon?tab=readme-ov-file)
 ---
 ### ① 下载 / 配置拓扑
 #### 若使用本仓库提供的拓扑：
 1. 下载本仓库，并使用IDE打开./5-PySNMP文件夹
-2. 打开topo中的pro3.topo，**无需做任何设置，本仓库下的所有拓扑均已配置完成**
+2. 打开/topo中的pro3.topo，**无需做任何设置，本仓库下的所有拓扑均已配置完成**
 #### 若自行配置拓扑：
 - 复制 ./5-PySNMP/commands/1-SZ1,SZ2 中的内容，粘贴至SZ1、SZ2窗口中  
   

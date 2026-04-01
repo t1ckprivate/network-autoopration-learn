@@ -40,3 +40,5 @@ Set-ExecutionPolicy RemoteSigned
 - 添加了**项目5-PySNMP**（文档真的很详细的！）
 - 更新了README
 - 优化了README的排版
+#### 2026.4.1
+- 添加了**项目6-Netconf**（文档真的很详细的！）

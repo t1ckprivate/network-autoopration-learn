@@ -1,0 +1,36 @@
+<config>
+<ifm xmlns="http://www.huawei.com/netconf/vrp/huawei-ifm">
+<interfaces>
+<interface xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" nc:operation="merge">
+<ifName>{{ interface_name }}</ifName>
+<ifAdminStatus>{{ interface_status }}</ifAdminStatus>
+<ifDescr>Config by NETCONF</ifDescr>
+</interface>
+</interfaces>
+</ifm>
+<ethernet xmlns="http://www.huawei.com/netconf/vrp/huawei-ethernet">
+<ethernetIfs>
+<ethernetIf>
+<ifName>{{ interface_name }}</ifName>
+<l2Enable>disable</l2Enable>
+</ethernetIf>
+</ethernetIfs>
+</ethernet>
+<ifm xmlns="http://www.huawei.com/netconf/vrp/huawei-ifm">
+<interfaces>
+<interface>
+<ifName>{{ interface_name }}</ifName>
+<ipv4Config>
+<addrCfgType>config</addrCfgType>
+<am4CfgAddrs>
+<am4CfgAddr>
+<ifIpAddr>{{ interface_ip }}</ifIpAddr>
+<subnetMask>{{ interface_mask }}</subnetMask>
+<addrType>main</addrType>
+</am4CfgAddr>
+</am4CfgAddrs>
+</ipv4Config>
+</interface>
+</interfaces>
+</ifm>
+</config>

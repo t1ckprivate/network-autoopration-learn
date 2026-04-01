@@ -1,0 +1,22 @@
+<config>
+<ethernet xmlns="http://www.huawei.com/netconf/vrp" content-version="1.0" format-version="1.0">
+        <ethernetIfs>
+          <ethernetIf operation="merge">
+            <ifName>{{ interface_name }}</ifName>
+            <l2Attribute>
+              <linkType>access</linkType>
+              <pvid>{{ vlan_id }}</pvid>
+            </l2Attribute>
+          </ethernetIf>
+        </ethernetIfs>
+      </ethernet>
+<ifm xmlns="http://www.huawei.com/netconf/vrp" content-version="1.0" format-version="1.0">
+        <interfaces>
+          <interface operation="merge">
+            <ifName>{{ interface_name }}</ifName>
+            <ifAdminStatus>up</ifAdminStatus>
+            <ifDescr>Config by NETCONF</ifDescr>
+          </interface>
+        </interfaces>
+      </ifm>
+</config>
