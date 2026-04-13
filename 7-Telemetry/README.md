@@ -18,8 +18,7 @@
 ## 操作步骤
 ### 零 安装并配置环境
 #### 使用python3.11并输入如下命令：
-    pip install ncclient
-    pip install jinja2
+    pip install grpcio-tools
 > 若你的虚拟机存在Python版本不兼容这些第三方库，请参阅：  
 > [GITHUB | TICKUNLOCK - CentOS_network-autooperathon
 ](https://github.com/t1ckunlock/CentOS_network-autooperathon?tab=readme-ov-file)
