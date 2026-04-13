@@ -41,4 +41,6 @@ Set-ExecutionPolicy RemoteSigned
 - 更新了README
 - 优化了README的排版
 #### 2026.4.1
-- 添加了**项目6-Netconf**（文档真的很详细的！）
+- 添加了**项目6-Netconf**
+#### 2026.4.13
+- 添加了**项目7-Telemetry**
