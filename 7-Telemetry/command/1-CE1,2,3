@@ -1,0 +1,28 @@
+aaa
+local-user python password irreversible-cipher Huawei12#$
+local-user python user-group manage-ug
+local-user python service-type ssh
+q
+stelnet server enable
+user-interface vty 0 4
+authentication-mode aaa
+user privilege level 3
+protocol inbound ssh
+q
+ssh user python
+ssh user python authentication-type password
+ssh user python service-type stelnet
+
+telemetry
+destination-group dest1
+ipv4-address 172.16.100.1 port 20000 protocol grpc no-tls
+q
+
+sensor-group sensor1
+sensor-path huawei-devm:devm/cpuInfos/cpuInfo condition express op-field systemCpuUsage op-type gt op-value 1
+sensor-path huawei-devm:devm/memoryInfos/memoryInfo condition express op-field osMemoryUsage op-type gt op-value 6
+q
+
+subscription sub1
+sensor-group sensor1
+destination-group dest1

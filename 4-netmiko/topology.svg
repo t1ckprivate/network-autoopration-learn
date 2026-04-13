@@ -16,7 +16,7 @@
 <text xml:space="preserve" text-anchor="middle" x="74.04" y="-52" font-family="Helvetica,sans-Serif" font-size="14.00" fill="white">S1</text>
 </g>
 <!-- SZ1 -->
-<g id="node2" class="node">
+<g id="node3" class="node">
 <title>SZ1</title>
 <polygon fill="#006699" stroke="#006699" points="190.21,-345.8 107.86,-345.8 107.86,-272.45 190.21,-272.45 190.21,-345.8"/>
 <text xml:space="preserve" text-anchor="middle" x="149.04" y="-303.7" font-family="Helvetica,sans-Serif" font-size="14.00" fill="white">SZ1</text>
@@ -30,7 +30,7 @@
 <text xml:space="preserve" text-anchor="middle" x="28.88" y="-97.51" font-family="Courier,monospace" font-size="14.00" fill="white">GE0/0/1</text>
 </g>
 <!-- S2 -->
-<g id="node4" class="node">
+<g id="node5" class="node">
 <title>S2</title>
 <polygon fill="#006699" stroke="#006699" points="232.09,-219.95 157.99,-219.95 157.99,-146.6 232.09,-146.6 232.09,-219.95"/>
 <text xml:space="preserve" text-anchor="middle" x="195.04" y="-177.85" font-family="Helvetica,sans-Serif" font-size="14.00" fill="white">S2</text>
@@ -51,22 +51,8 @@
 <text xml:space="preserve" text-anchor="middle" x="222.92" y="-132.81" font-family="Courier,monospace" font-size="14.00" fill="white">GE0/0/24</text>
 <text xml:space="preserve" text-anchor="middle" x="144.58" y="-57.11" font-family="Courier,monospace" font-size="14.00" fill="white">GE0/0/24</text>
 </g>
-<!-- SZ2 -->
-<g id="node5" class="node">
-<title>SZ2</title>
-<polygon fill="#006699" stroke="#006699" points="278.21,-471.65 195.86,-471.65 195.86,-398.3 278.21,-398.3 278.21,-471.65"/>
-<text xml:space="preserve" text-anchor="middle" x="237.04" y="-429.55" font-family="Helvetica,sans-Serif" font-size="14.00" fill="white">SZ2</text>
-</g>
-<!-- SZ1&#45;&#45;SZ2 -->
-<g id="edge7" class="edge">
-<title>SZ1&#45;&#45;SZ2</title>
-<path fill="none" stroke="green" stroke-dasharray="5,2" d="M174.73,-346.28C186.29,-362.56 199.91,-381.73 211.47,-397.99"/>
-<text xml:space="preserve" text-anchor="middle" x="247.81" y="-367" font-family="Courier,monospace" font-size="14.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
-<text xml:space="preserve" text-anchor="middle" x="182.59" y="-384.69" font-family="Courier,monospace" font-size="14.00" fill="white">GE0/0/0</text>
-<text xml:space="preserve" text-anchor="middle" x="145.85" y="-349.48" font-family="Courier,monospace" font-size="14.00" fill="white">GE0/0/0</text>
-</g>
 <!-- S4 -->
-<g id="node3" class="node">
+<g id="node2" class="node">
 <title>S4</title>
 <polygon fill="#006699" stroke="#006699" points="358.09,-219.95 283.99,-219.95 283.99,-146.6 358.09,-146.6 358.09,-219.95"/>
 <text xml:space="preserve" text-anchor="middle" x="321.04" y="-177.85" font-family="Helvetica,sans-Serif" font-size="14.00" fill="white">S4</text>
@@ -79,6 +65,12 @@
 <text xml:space="preserve" text-anchor="middle" x="219.25" y="-262.94" font-family="Courier,monospace" font-size="14.00" fill="white">GE1/0/0</text>
 <text xml:space="preserve" text-anchor="middle" x="254.92" y="-212.22" font-family="Courier,monospace" font-size="14.00" fill="white">GE0/0/2</text>
 </g>
+<!-- SZ2 -->
+<g id="node4" class="node">
+<title>SZ2</title>
+<polygon fill="#006699" stroke="#006699" points="278.21,-471.65 195.86,-471.65 195.86,-398.3 278.21,-398.3 278.21,-471.65"/>
+<text xml:space="preserve" text-anchor="middle" x="237.04" y="-429.55" font-family="Helvetica,sans-Serif" font-size="14.00" fill="white">SZ2</text>
+</g>
 <!-- S4&#45;&#45;SZ2 -->
 <g id="edge5" class="edge">
 <title>S4&#45;&#45;SZ2</title>
@@ -86,6 +78,14 @@
 <text xml:space="preserve" text-anchor="middle" x="392.12" y="-304.08" font-family="Courier,monospace" font-size="14.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
 <text xml:space="preserve" text-anchor="middle" x="307.57" y="-391.67" font-family="Courier,monospace" font-size="14.00" fill="white">GE1/0/0</text>
 <text xml:space="preserve" text-anchor="middle" x="365.27" y="-223.36" font-family="Courier,monospace" font-size="14.00" fill="white">GE0/0/1</text>
+</g>
+<!-- SZ1&#45;&#45;SZ2 -->
+<g id="edge7" class="edge">
+<title>SZ1&#45;&#45;SZ2</title>
+<path fill="none" stroke="green" stroke-dasharray="5,2" d="M174.73,-346.28C186.29,-362.56 199.91,-381.73 211.47,-397.99"/>
+<text xml:space="preserve" text-anchor="middle" x="247.81" y="-367" font-family="Courier,monospace" font-size="14.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+<text xml:space="preserve" text-anchor="middle" x="182.59" y="-384.69" font-family="Courier,monospace" font-size="14.00" fill="white">GE0/0/0</text>
+<text xml:space="preserve" text-anchor="middle" x="145.85" y="-349.48" font-family="Courier,monospace" font-size="14.00" fill="white">GE0/0/0</text>
 </g>
 <!-- S2&#45;&#45;SZ1 -->
 <g id="edge4" class="edge">
