@@ -1,0 +1,5 @@
+graph {
+	graph [bgcolor="#3F3F3F" fontcolor=white fontsize=10 label="拓扑图" rankdir=BT]
+	node [color="#006699" fillcolor="#006699" fontcolor=white fontname=Helvetica margin=0.4 shape=box style=filled]
+	edge [arrowhead=open color=green fontcolor=white fontname=Courier fontsize=14 style=dashed]
+}

@@ -152,7 +152,7 @@
     ip domain name cisco.com
     crypto key generate rsa
     768
-    username cisco privilege 15 password 0 cisco
+    username urname privilege 15 password 0 urname      # urname换成你的名字的拼音
     line vty 0 4
     login local
     transport preferred ssh
@@ -164,9 +164,11 @@
     ip http secure-server
 
     int g1
-    ip add 192.168.201.101 255.255.255.0        # 这里IP改成另一张网卡的，每台路由器都改不一样的
+    ip add 192.168.201.101 255.255.255.0        # 这里IP记得改成自己的
     no shutdown
     exit
+
+    lldp run
 
     ```
     > **❕ 关于上面的ip**
@@ -175,16 +177,27 @@
     > 看网段，`除了给出的那个ip`，`另一个网段`才是这里需要写进去的网段
 
 ### ② 修改代码
-修改本仓库提供的`./8-Restconf/code.py `   
-其中的`第251至254行`
-将其中的IP`修改为`刚才`给路由器配置的那四个IP`，从`上至下`分别是`1-4`  
+1. 
+  - 修改本仓库提供的`./8-Restconf/code.py `   
+  - 其中的`第251至254行`还有`第189至190行`
+  - 将其中的IP`修改为`刚才`给路由器配置的那四个IP`，从`上至下`分别是`1-4` 
+  - 账号密码修改为上面配置命令中的  
   <p align="center">
     <img src="/images/8-Restconf/14.png" width="50%">
   </p>
   <p align="center"><em>VS code</em></p>
 
+2. 
+  - 修改`./4-Netmiko/Cisco/cisco_devices.json`
+  - 其中的`host`、`username`、`password`
+  - 账号密码修改为上面配置命令中的
+
+  > 本仓库的代码均为修改完毕的，拿去改个关键信息直接用就好 
+
 ### ③ 运行代码！
-- 出现以下结果即实验成功
+  - 一个是项目8的`code.py`
+  - 另一个是项目4中`Cisco文件夹内`的`code_cisco.py`
+  - 出现以下结果即实验成功
 <p align="center">
   <img src="/images/8-Restconf/15.png" width="50%">
 </p>
@@ -207,8 +220,10 @@
   - 然后克隆下，一共`整四台`    
 
 #### 2. 配置网卡
-  - 这里直接加一张网卡吧，随便什么都好，比如VMnet10  
-  - 加这一张网卡是为了`让这四个路由器`还有`宿主机或虚拟机`互连起来  
+  - 这里直接加两张网卡，随便什么都好，比如VMnet10、VMnet11  
+  - 加第一张网卡是为了`让这四个路由器`还有`宿主机或虚拟机`互连起来  
+  - 加`三`张`重复的第二张`到虚拟机，是为了让路由器们的G2、3、4互连  
+  - 也就是相当于连线了  
 
   - 然后你`如果用CentOS里的pycharm`写代码，就把这张网卡也加进那个虚拟机里面  
   - 如果是用宿主机写代码，就不需要任何操作了
@@ -223,7 +238,7 @@
       ip domain name cisco.com
       crypto key generate rsa
       768
-      username cisco privilege 15 password 0 cisco
+      username urname privilege 15 password 0 urname      # urname换成你的名字的拼音
       line vty 0 4
       login local
       transport preferred ssh
@@ -235,16 +250,28 @@
       ip http secure-server
 
       int g1
-      ip add 192.168.201.101 255.255.255.0        # 这里IP改成另一张网卡的，每台路由器都改不一样的
+      ip add 192.168.201.101 255.255.255.0        # 这里IP记得改成自己的
       no shutdown
       exit
+
+      lldp run
     ```
 #### 4. 改代码
+  ①
   - 修改本仓库提供的`./8-Restconf/code.py `   
-  - 其中的`第251至254行`
+  - 其中的`第251至254行`还有`第189至190行`
   - 将其中的IP`修改为`刚才`给路由器配置的那四个IP`，从`上至下`分别是`1-4` 
+  - 账号密码修改为上面配置命令中的  
+  
+  ②
+  - 修改`./4-Netmiko/Cisco/cisco_devices.json`
+  - 其中的`host`、`username`、`password`
+  - 账号密码修改为上面配置命令中的
 
+  > 本仓库的代码均为修改完毕的，拿去改个关键信息直接用就好
 #### 5. 跑代码
+  - 一个是项目8的`code.py`
+  - 另一个是项目4中`Cisco文件夹内`的`code_cisco.py`
   - 没了
   - 其实还是很简单的。。
 

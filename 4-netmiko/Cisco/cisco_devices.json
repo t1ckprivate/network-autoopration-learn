@@ -1,0 +1,27 @@
+ {
+    "CSR1": {
+              "device_type":"cisco_ios",
+              "host":"192.168.201.101",
+              "username":"leiruoqi",
+              "password":"leiruoqi"
+    	},    
+    "CSR2": {
+              "device_type":"cisco_ios",
+              "host":"192.168.201.102",
+              "username":"leiruoqi",
+              "password":"leiruoqi"
+    	},    
+    "CSR3": {
+              "device_type":"cisco_ios",
+              "host":"192.168.201.103",
+              "username":"leiruoqi",
+              "password":"leiruoqi"
+    	},
+    "CSR4": {
+              "device_type":"cisco_ios",
+              "host":"192.168.201.104",
+              "username":"leiruoqi",
+              "password":"leiruoqi"
+    	}
+}
+

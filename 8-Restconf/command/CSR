@@ -5,7 +5,7 @@ hostname CSR1        # 这里记得换数字
 ip domain name cisco.com
 crypto key generate rsa
 768
-username cisco privilege 15 password 0 cisco
+username urname privilege 15 password 0 urname      # urname换成你的名字的拼音
 line vty 0 4
 login local
 transport preferred ssh
@@ -20,3 +20,5 @@ int g1
 ip add 192.168.201.101 255.255.255.0        # 这里IP记得改成自己的
 no shutdown
 exit
+
+lldp run

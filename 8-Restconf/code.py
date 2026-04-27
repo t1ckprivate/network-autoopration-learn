@@ -33,155 +33,100 @@ CSR1kv_4_int_ip = [
 # 定义路由器CSR1kv-1的OSPF请求消息体
 CSR1kv_1_ospf_body = {
     "Cisco-IOS-XE-native:router": {
-        "Cisco-IOS-XE-ospf:ospf": [
-            {
-                "id": 10,
-                "area": [
+        "Cisco-IOS-XE-ospf:router-ospf": {
+            "ospf": {
+                "process-id": [
                     {
                         "id": 10,
-                        "stub": {}
-                    },
-                    {
-                        "id": 20,
-                        "stub": {}
-                    }
-                ],
-                "router-id": "1.1.1.1",
-                "network": [
-                    {
-                        "ip": "1.1.1.1",
-                        "mask": "0.0.0.0",
-                        "area": 0
-                    },
-                    {
-                        "ip": "10.1.13.1",
-                        "mask": "0.0.0.0",
-                        "area": 10
-                    },
-                    {
-                        "ip": "10.2.14.1",
-                        "mask": "0.0.0.0",
-                        "area": 20
-                    },
-                    {
-                        "ip": "192.168.1.11",
-                        "mask": "0.0.0.0",
-                        "area": 0
+                        "area": [
+                            {"area-id": 10, "stub": {}},
+                            {"area-id": 20, "stub": {}}
+                        ],
+                        "router-id": "1.1.1.1",
+                        "network": [
+                            {"ip": "1.1.1.1", "wildcard": "0.0.0.0", "area": 0},
+                            {"ip": "10.1.13.1", "wildcard": "0.0.0.0", "area": 10},
+                            {"ip": "10.2.14.1", "wildcard": "0.0.0.0", "area": 20},
+                            {"ip": "192.168.1.11", "wildcard": "0.0.0.0", "area": 0}
+                        ]
                     }
                 ]
             }
-        ]
+        }
     }
 }
+
 # 定义路由器CSR1kv-2的OSPF请求消息体
 CSR1kv_2_ospf_body = {
     "Cisco-IOS-XE-native:router": {
-        "Cisco-IOS-XE-ospf:ospf": [
-            {
-                "id": 10,
-                "area": [
+        "Cisco-IOS-XE-ospf:router-ospf": {
+            "ospf": {
+                "process-id": [
                     {
                         "id": 10,
-                        "stub": {}
-                    },
-                    {
-                        "id": 20,
-                        "stub": {}
-                    }
-                ],
-                "router-id": "2.2.2.2",
-                "network": [
-                    {
-                        "ip": "2.2.2.2",
-                        "mask": "0.0.0.0",
-                        "area": 0
-                    },
-                    {
-                        "ip": "10.3.23.2",
-                        "mask": "0.0.0.0",
-                        "area": 10
-                    },
-                    {
-                        "ip": "10.4.24.2",
-                        "mask": "0.0.0.0",
-                        "area": 20
-                    },
-                    {
-                        "ip": "192.168.1.12",
-                        "mask": "0.0.0.0",
-                        "area": 0
+                        "area": [
+                            {"area-id": 10, "stub": {}},
+                            {"area-id": 20, "stub": {}}
+                        ],
+                        "router-id": "2.2.2.2",
+                        "network": [
+                            {"ip": "2.2.2.2", "wildcard": "0.0.0.0", "area": 0},
+                            {"ip": "10.3.23.2", "wildcard": "0.0.0.0", "area": 10},
+                            {"ip": "10.4.24.2", "wildcard": "0.0.0.0", "area": 20},
+                            {"ip": "192.168.1.12", "wildcard": "0.0.0.0", "area": 0}
+                        ]
                     }
                 ]
             }
-        ]
+        }
     }
 }
 # 定义路由器CSR1kv-3的OSPF请求消息体
+
 CSR1kv_3_ospf_body = {
     "Cisco-IOS-XE-native:router": {
-        "Cisco-IOS-XE-ospf:ospf": [
-            {
-                "id": 10,
-                "area": [
+        "Cisco-IOS-XE-ospf:router-ospf": {
+            "ospf": {
+                "process-id": [
                     {
                         "id": 10,
-                        "stub": {}
-                    }
-                ],
-                "router-id": "3.3.3.3",
-                "network": [
-                    {
-                        "ip": "3.3.3.3",
-                        "mask": "0.0.0.0",
-                        "area": 10
-                    },
-                    {
-                        "ip": "10.1.13.3",
-                        "mask": "0.0.0.0",
-                        "area": 10
-                    },
-                    {
-                        "ip": "10.3.23.3",
-                        "mask": "0.0.0.0",
-                        "area": 10
+                        "area": [
+                            {"area-id": 10, "stub": {}}
+                        ],
+                        "router-id": "3.3.3.3",
+                        "network": [
+                            {"ip": "3.3.3.3", "wildcard": "0.0.0.0", "area": 10},
+                            {"ip": "10.1.13.3", "wildcard": "0.0.0.0", "area": 10},
+                            {"ip": "10.3.23.3", "wildcard": "0.0.0.0", "area": 10}
+                        ]
                     }
                 ]
             }
-        ]
+        }
     }
 }
 # 定义路由器CSR1kv-4的OSPF请求消息体
+
 CSR1kv_4_ospf_body = {
     "Cisco-IOS-XE-native:router": {
-        "Cisco-IOS-XE-ospf:ospf": [
-            {
-                "id": 10,
-                "area": [
+        "Cisco-IOS-XE-ospf:router-ospf": {
+            "ospf": {
+                "process-id": [
                     {
-                        "id": 20,
-                        "stub": {}
-                    }
-                ],
-                "router-id": "4.4.4.4",
-                "network": [
-                    {
-                        "ip": "4.4.4.4",
-                        "mask": "0.0.0.0",
-                        "area": 20
-                    },
-                    {
-                        "ip": "10.2.14.4",
-                        "mask": "0.0.0.0",
-                        "area": 20
-                    },
-                    {
-                        "ip": "10.4.24.4",
-                        "mask": "0.0.0.0",
-                        "area": 20
+                        "id": 10,
+                        "area": [
+                            {"area-id": 20, "stub": {}}
+                        ],
+                        "router-id": "4.4.4.4",
+                        "network": [
+                            {"ip": "4.4.4.4", "wildcard": "0.0.0.0", "area": 20},
+                            {"ip": "10.2.14.4", "wildcard": "0.0.0.0", "area": 20},
+                            {"ip": "10.4.24.4", "wildcard": "0.0.0.0", "area": 20}
+                        ]
                     }
                 ]
             }
-        ]
+        }
     }
 }
 
@@ -237,11 +182,12 @@ def configure_ospf(ospf_body):
                             verify=False,
                             data=json.dumps(ospf_body)
                             )
+    return response
 
 if __name__ == "__main__":
     # 登陆路由器的用户名和密码
-    USER = 'cisco'
-    PASS = 'cisco'
+    USER = 'leiruoqi'
+    PASS = 'leiruoqi'
 
     # 添加HTTP head信息，使用 yang+json 作为数据格式
     headers = {'Content-Type': 'application/yang-data+json',
@@ -270,5 +216,7 @@ for device in device_conf_info:
         # 获取设备的OSPF配置消息体
         ospf_body = device[2]
         # 调用函数configure_ospf配置设备OSPF
-        configure_ospf(ospf_body)
+        resp = configure_ospf(ospf_body)
+        print("状态码:", resp.status_code)
+        print("返回:", resp.text)
         print("路由器 %s 上OSPF配置完毕........." % host)
