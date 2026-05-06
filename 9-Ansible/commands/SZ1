@@ -13,5 +13,5 @@ protocol inbound ssh
 quit
 rsa local-key-pair create
 
-y
-2048
+# y
+# 2048

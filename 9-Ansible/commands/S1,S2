@@ -15,5 +15,5 @@ user privilege level 15
 protocol inbound ssh
 quit
 rsa local-key-pair create
-y
-2048
+
+# 2048
