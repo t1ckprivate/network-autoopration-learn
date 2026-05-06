@@ -29,9 +29,9 @@
 1. 新建一朵Cloud，添加UDP以及VMnet网卡，并使其相互映射
 2. 将`S4`的`G0/0/7`连接至`Cloud`，并将其`加入vlan3`中：
     ```
-        interface GigabitEthernet0/0/7
-        port link-type access
-        port default vlan 3 
+    interface GigabitEthernet0/0/7
+    port link-type access
+    port default vlan 3 
     ```
 
 3. 配置SZ1：
