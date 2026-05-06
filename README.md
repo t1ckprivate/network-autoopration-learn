@@ -49,3 +49,5 @@ Set-ExecutionPolicy RemoteSigned
 #### 2026.4.27
 - 修改了**项目8-Restconf**中的`code.py`  
 - 修改了**项目4-Netmiko**中的文件结构，在其中添加了Cisco设备的网络绘制代码  
+#### 2026.5.6
+- 添加了**项目9-Ansible**
