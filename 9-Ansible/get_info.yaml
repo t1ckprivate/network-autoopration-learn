@@ -1,0 +1,58 @@
+---
+- name: Get Router and Switch Information
+  hosts: devices
+  gather_facts: no
+  vars:
+    ansible_user: "{{ ansible_ssh_user }}"
+    ansible_password: "{{ ansible_ssh_pass }}"
+    ansible_port: "{{ ansible_ssh_port }}"
+
+  
+  tasks:
+
+    - name: "Display version"
+      ce_command:
+        commands:
+          - display version
+      register: version_result
+      ignore_errors: yes
+
+    - name: "Show version output"
+      debug:
+        msg: "{{ version_result.stdout | default(['NO OUTPUT']) }}"
+      when: version_result is defined
+
+
+    - name: "OSPF peer brief"
+      ce_command:
+        commands:
+          - display ospf peer brief
+      register: ospf_result
+      ignore_errors: yes
+
+    - name: "Show OSPF peer output"
+      debug:
+        msg: "{{ ospf_result.stdout | default(['NO OUTPUT']) }}"
+      when: ospf_result is defined
+
+
+    - name: "Routing Table"
+      ce_command:
+        commands:
+          - display ip routing-table
+      register: route_result
+      ignore_errors: yes
+
+    - name: "Show Routing Table"
+      debug:
+        msg: "{{ route_result.stdout | default(['NO OUTPUT']) }}"
+      when: route_result is defined
+
+    # - name: TEST cli_command
+    #   ansible.netcommon.cli_command:
+    #     command: display version
+    #   register: test_result
+
+    # - name: Show TEST output
+    #   debug:
+    #     var: test_result.stdout
