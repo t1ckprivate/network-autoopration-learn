@@ -1,0 +1,6 @@
+---
+router:
+  platform: huawei
+
+switch:
+  platform: huawei
