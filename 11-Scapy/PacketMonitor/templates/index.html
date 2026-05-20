@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Network Map</title>
+
+    <!-- Leaflet.js Stylesheet for map rendering -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <!-- Turf.js for calculating Great Circle routes -->
+    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+
+    <!-- Socket.IO for real-time communication -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+
+    <style>
+        body { background-color: black; }
+        #map { 
+            height: 80vh; 
+            width: 85%; 
+             
+            display: block; 
+        }
+
+        /* Neon Line Animation */
+        .laser-line {
+            stroke: #a600ff; /* Purple Neon */
+            stroke-width: 3;
+            stroke-linecap: round;
+            filter: drop-shadow(0 0 6px #a600ff);
+            animation: laser-glow 0.8s infinite alternate ease-in-out;
+        }
+
+        @keyframes laser-glow {
+            from {
+                stroke: #a600ff;
+                filter: drop-shadow(0 0 10px #a600ff);
+            }
+            to {
+                stroke: #ff00ff;
+                filter: drop-shadow(0 0 20px #ff00ff);
+            }
+        }
+
+        /* Moving Pulse Effect */
+        .pulse {
+            width: 6px;
+            height: 6px;
+            background-color: #ff00ff;
+            border-radius: 50%;
+            box-shadow: 0 0 5px #ff00ff;
+            position: absolute;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Statistics Panel */
+        #stats-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+            max-width: 300px;
+        }
+
+        #stats-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #stats-list {
+            font-size: 14px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #stats-list li {
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Map Container -->
+    <div id="map-container">
+        <div id="map"></div>
+    </div>
+
+    <!-- Statistics Panel -->
+    <div id="stats-container">
+        <div id="stats-title">🌍 Traffic Statistics</div>
+        <ul id="stats-list"></ul>
+    </div>
+
+    <script>
+        var map = L.map('map').setView([0, 0], 2);
+
+        // 🌌 Dark Cyberpunk-style map layer
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
+            subdomains: 'bcd',
+            maxZoom: 20
+        }).addTo(map);
+
+        var socket = io.connect("http://127.0.0.1:23323");
+
+        var countryStats = {};  // Stores the number of connections and data traffic per country
+
+        var sourceLat = 51.1657, sourceLon = 10.4515;  // Default location: Germany
+
+        // 🔹 Retrieve the user's public IP and approximate location
+        fetch("https://ipinfo.io/json")  // Replace with your API token
+            .then(response => response.json())
+            .then(data => {
+                if (data.loc) {
+                    let [lat, lon] = data.loc.split(",");
+                    sourceLat = parseFloat(lat);
+                    sourceLon = parseFloat(lon);
+                }
+            })
+            .catch(error => console.error("⚠ Error retrieving user IP:", error));
+
+        socket.on('update_map', function(data) {
+            if (data.lat && data.lon) {
+                let targetLat = data.lat;
+                let targetLon = data.lon;
+                let country = data.country || "Unknown";
+                let dataSize = parseInt(data.size);
+                console.log(dataSize);
+
+                // 🔹 Update country statistics
+                if (!countryStats[country]) {
+                    countryStats[country] = { connections: 0, traffic: 0 };
+                }
+                countryStats[country].connections++;
+                countryStats[country].traffic += dataSize;
+                updateStatsDisplay();
+
+                // 🔹 Trigger pulse-travel animation
+                animatePulseLine([sourceLat, sourceLon], [targetLat, targetLon]);
+            }
+        });
+
+        // 🔹 Pulse-Travel Effect for Animated Line
+        function animatePulseLine(start, end) {
+            let lineCoordinates = getGreatCirclePath(start, end, 30);
+            let step = 0;
+
+            let laserLine = L.polyline([], { color: '#a600ff', weight: 3, opacity: 1.0 }).addTo(map);
+            let pulseMarker = L.marker(start, {
+                icon: L.divIcon({
+                    className: 'pulse',
+                    iconSize: [12, 12]
+                })
+            }).addTo(map);
+
+            let interval = setInterval(() => {
+                if (step < lineCoordinates.length) {
+                    laserLine.setLatLngs(lineCoordinates.slice(0, step + 1));
+                    pulseMarker.setLatLng(lineCoordinates[step]);
+                    step++;
+                } else {
+                    clearInterval(interval);
+                    setTimeout(() => fadeOutLayer(laserLine, 1.0), 2000);  // Fade out after 2s
+                    setTimeout(() => map.removeLayer(pulseMarker), 3200);
+                }
+            }, 50);
+        }
+
+        // 🔹 Compute Great Circle path for realistic routing
+        function getGreatCirclePath(start, end, numPoints) {
+            let line = turf.greatCircle(turf.point(start.reverse()), turf.point(end.reverse()), { npoints: numPoints });
+            return line.geometry.coordinates.map(coord => coord.reverse());
+        }
+
+        // 🔹 Gradual fading effect for animated lines
+        function fadeOutLayer(layer, opacity) {
+            if (opacity <= 0) {
+                map.removeLayer(layer);
+                return;
+            }
+            opacity -= 0.1;
+            if (layer.setStyle) {
+                layer.setStyle({ opacity: opacity });
+            } else if (layer.setOpacity) {
+                layer.setOpacity(opacity);
+            }
+            setTimeout(() => fadeOutLayer(layer, opacity), 100);
+        }
+
+        // 🔹 Update the statistics display with connection count and traffic data
+        function updateStatsDisplay() {
+            let statsList = document.getElementById("stats-list");
+            statsList.innerHTML = "";
+
+            let sortedStats = Object.entries(countryStats)
+                .sort((a, b) => b[1].traffic - a[1].traffic);
+
+            sortedStats.forEach(([country, data]) => {
+                let formattedTraffic = formatBytes(data.traffic);
+                let listItem = document.createElement("li");
+                listItem.innerText = `${country}: ${data.connections} Packets - ${formattedTraffic}`;
+                statsList.appendChild(listItem);
+            });
+        }
+
+        // 🔹 Convert bytes to KB, MB, or GB for readability
+        function formatBytes(bytes) {
+            if (bytes < 1024) return bytes + " B";
+            let units = ["KB", "MB", "GB", "TB"];
+            let i = -1;
+            do {
+                bytes /= 1024;
+                i++;
+            } while (bytes >= 1024 && i < units.length - 1);
+            return bytes.toFixed(1) + " " + units[i];
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+Flask==3.0.0
+Flask-SocketIO==5.3.6
+requests==2.31.0
+scapy==2.5.0
+python-socketio==5.9.0
+eventlet==0.33.3
+gevent==22.10.2
+gevent-websocket==0.10.1
