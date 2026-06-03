@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+    <script  src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>{{title}}</title>
+    <style>
+    .row{
+      padding:12px;
+    }
+  input,button{
+      border-radius : 0px !important;
+  }
+   input{
+       padding:21px !important;
+   }
+   button{
+    padding: 10px 23px 10px 23px !important;
+   }
+   input.form-control:focus {
+    box-shadow: none;
+}
+.table>thead>tr>th {
+  border-bottom: unset !important;
+}
+.title{
+    font-family:Segoe UI,SegoeUI,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: lighter;
+    font-size: -webkit-xxx-large;
+    color: #337ab7;
+}
+#padrl{
+    margin:2px !important;
+}
+.table>tbody>tr>td{
+    border-top: unset !important;
+}
+   
+    </style>
+    
+    
+</head>
+<body class="d-flex flex-column h-100">
+  
+    <div ng-app = "" class="container">
+      <div class="row">
+        <p class='title'>enumerate</p>
+        <form class="form">
+              <div class="form-group col-md-3" style="padding-left:unset !important;">
+                <input type="text" class="form-control" name="domainname" placeholder="ipaddress" autocomplete="off">
+              </div>
+              <button type="submit" class="btn btn-primary col-md-s"> search  </svg>
+              </button>
+          </form>
+      </div>
+    </div>
+    <div class='container'>
+        <div id='loading' style='display:none;'>
+            <?xml version="1.0" encoding="utf-8"?>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background:transparent; display: block; shape-rendering: auto;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                <path d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50" fill="#2e6da4" stroke="none" transform="rotate(181.751 50 51)">
+                <animateTransform attributeName="transform" type="rotate" dur="1s" repeatCount="indefinite" keyTimes="0;1" values="0 50 51;360 50 51"></animateTransform>
+                </path>
+            </svg>
+        </div>
+    </div>
+    <div id='dataTable' class='dataTable container' style='display:none'>
+            <h3>Scan Result</h3>
+            <h4><span><svg id="i-tag" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 07" width="20" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+              <circle cx="24" cy="8" r="2" />
+              <path d="M2 18 L18 2 30 2 30 14 14 30 Z" />
+          </svg></span>Information</h4>
+            <p id="info"></p>
+            <h4>
+            <div class="alert alert-light" role="alert">
+                    <table id="contentjson0"></table>
+            </div>
+
+
+            <svg id="i-options" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 01" width="20" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                <path d="M28 6 L4 6 M28 16 L4 16 M28 26 L4 26 M24 3 L24 9 M8 13 L8 19 M20 23 L20 29" />
+            </svg>Port</h4>
+            <p id='tp'></p>
+            <div class="alert alert-light" role="alert">
+                    <div id="contentjson"></div>
+            </div>
+
+            <h4><svg id="i-feed" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 01" width="20" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                <circle cx="6" cy="26" r="2" fill="currentColor" />
+                <path d="M4 15 C11 15 17 21 17 28 M4 6 C17 6 26 15 26 28" />
+            </svg>Services</h4>
+            <div class="alert alert-light" role="alert">
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                            <th scope="col">port</th>
+                            <th scope="col">name</th>
+                            <th scope="col">product</th>
+                            <th scope="col">version</th>
+                            <th scope="col">cpe</th>
+                            </tr>
+                        </thead>
+                        <tbody id="contentjson2">
+                            
+                        </tbody>
+                    </table>
+            </div>
+
+    </div>
+
+</body>
+<script>
+
+$(function() {
+    $('button').click(function() {
+        document.getElementById('loading').style.display='block'
+        document.getElementById("tp").textContent = '';
+        document.getElementById('dataTable').style.display='none'
+        document.getElementById("contentjson").textContent = '';
+        document.getElementById("contentjson2").textContent = '';
+        document.getElementById("contentjson0").textContent='';
+
+        $.ajax({
+            url: '/scaner',
+            data: $('form').serialize(),
+            type: 'POST',
+            success: function(response) {
+                document.getElementById('loading').style.display='none' 
+                document.getElementById('dataTable').style.display='block'
+                if((JSON.parse(response))['user'] == '0' || (JSON.parse(response))['user'] == 'local Ip cannot be used' ){
+
+                  document.getElementById("contentjson").innerHTML += '<p id="padrl" style="color:#d9534f"> host down/ local ip address cannot be searched</p>'; 
+                }
+                else {
+                document.getElementById("contentjson").textContent = '';
+                serializeData = (JSON.parse(response))['user']['tcp']
+                serializeData0 = (JSON.parse(response))['user']
+                setializeDataKeys = Object.keys(serializeData)
+                document.getElementById("contentjson0").innerHTML += '<tr><td> hostname : '+ serializeData0['hostnames'][0]['name']+'</td></tr>'; 
+                setializeDataKeys.forEach(myFunction);
+                document.getElementById("tp").innerHTML += setializeDataKeys.length + ' Ports Found'; 
+
+                function myFunction(item, index) {
+                // document.getElementById("contentjson").innerHTML += '<span>' + item +'</span> <span class="btn btn-success">'+ serializeData[item]['state']+ "</span></p>"; 
+                document.getElementById("contentjson").innerHTML += '<a id="padrl" class="btn btn-success">' + item +'</a>'; 
+                document.getElementById("contentjson2").innerHTML += '<tr><td>'+[item]+'</td><td>'+serializeData[item]['name']+'</td><td>'+serializeData[item]['product']+'</td><td>'+serializeData[item]['version']+'</td><td>'+serializeData[item]['cpe']+'</td></tr>'; 
+                }
+                console.log('allokey');}
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    });
+});
+</script>
+
+</html>
