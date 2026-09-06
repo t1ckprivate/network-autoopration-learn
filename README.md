@@ -1,6 +1,6 @@
 <div align="center">
 
-# NetworkAutoopration-learn
+# NetworkAutooperation-learn
 
 ### GUFL网络工程系 · 自动化运维的学习仓库  
 #### **开拓视野 · 开放思维**
